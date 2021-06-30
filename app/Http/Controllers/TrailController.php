@@ -68,7 +68,8 @@ class TrailController extends Controller
             $trails->flying_from =$request->flying_from;
             $trails->total_cost =$request->total_cost;
             $trails->save();
-            return response()->json($trails, 200);
+            return response()->json(["message"=>"Created success"], 200);
+
 
         }
     }
@@ -107,7 +108,7 @@ class TrailController extends Controller
 
                 $trails=Trail::where('id', $trails_items->trail_id)
                                 ->update(['total_cost' => $totalCost]);
-                return response()->json(["message"=>"updated success"], 200);
+                return response()->json(["message"=>"Updated success"], 200);
             }else{
 
                 $responseArr['error'] = "Item Not Found";
